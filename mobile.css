@@ -1,0 +1,117 @@
+* {
+margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+}
+
+.limiter {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.container {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
+	background: #3C3C3B;
+	color: #FFFFFF;
+}
+
+.wrap {
+	padding: 33px 15px;
+}
+
+.wrap {
+	width: 390px;
+	background: transparent;
+	overflow: hidden;
+	/*-webkit-box-shadow: 0 5px 10px 0px rgba(0,0,0,0.1);*/
+}
+
+.dina-logo {
+	display: inline-block;
+	width: 100%;
+	height: 250px;
+	margin-bottom: 33px; 
+	background-image: url('dinablock.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.form-wrap-input {
+	width: 100%;
+	border-bottom: 2px solid #FFFFFF;
+	margin-bottom: 37px;
+}
+
+input {
+	outline: none;
+	border: none;
+}
+
+.form-input {
+	font-size: 15px;
+	color: #DDDDDD;
+	line-height: 1.2;
+	display: block;
+	width: 100%;
+	height: 45px;
+	background: transparent;
+	padding: 0 5px;
+}
+
+.form-container-btn {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-top: 13px;
+}
+
+.form-wrap-btn {
+	width: 100%;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.form-btn {
+	color: #FFFFFF;
+	border-radius: 25px;
+	background: #3C3C3B;
+	border: solid 2px #FFFFFF;
+	line-height: 1.2;
+	text-transform: uppercase;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 20px;
+	width: 100%;
+	height: 50px;
+}
+
+/* Div esqueci a senha */
+.form-forgot-pwd {
+	padding-top: 100px;
+	text-align: center;
+}
+
+/* Texto esqueci a senha */
+.form-forgot-text {
+	font-size: 13px;
+	color: #DDDDDD;
+	line-height: 1.5;	
+}
+
+.form-forgot-text > a {
+	color: #F3F3F3;
+	font-weight: bold;
+}
