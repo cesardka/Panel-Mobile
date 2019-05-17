@@ -4,9 +4,9 @@
 	<title>Dina mobile</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="mobile.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
 <body>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<div class="limiter">
 		<div class="container">
 			<div class="wrap">
@@ -44,8 +44,10 @@
 		// });
 
 		$.ajax({
-
 		    url: 'http://passport.alexandre.dev.com/auth',
+		    headers: {
+		    	"Content-Type": "text/html; charset=UTF-8",
+		    },
 		    data: {
 				user: user,
 				password: pass,
@@ -53,8 +55,22 @@
 			},
 		    type: 'POST',
 		    // contentType: 'application/json; charset=utf-8',
-		    success: function(data) { console.log("Success"); console.log(data); },
-		    error: function(data) { console.log('Failed!');console.log(data); },
+		    success: function(data) { 
+		    	console.log(data); 
+		    	if (typeof(Storage) !== "undefined") {
+				  // Store
+				  sessionStorage.setItem("utoken", data.body["auth-token"]);
+				  $( location ).attr("href", "client.html");
+				  // Retrieve
+				} else {
+				  //document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+				  console.log("Sem session! D:");
+				}
+		    },
+		    error: function(data) { 
+		    	console.log('Failed!');
+		    	console.log(data); 
+		    },
 		    //beforeSend: setHeader
 		});
 	}
