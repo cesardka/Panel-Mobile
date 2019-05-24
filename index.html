@@ -1,35 +1,35 @@
-
 <html>
-<head>
-	<title>Dina mobile</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="mobile.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-</head>
-<body>
-	<div class="limiter">
-		<div class="container">
-			<div class="wrap">
-				<form id="form-login" action="http://passport.alexandre.dev.com/auth" method="POST" onsubmit="return false;">
-					<span class="dina-logo" alt="Dinamize">
-					</span>
-					<div class="form-wrap-input">
-						<input class="form-input" type="text" name="email" id="form-user" placeholder="E-mail">
-					</div>
-					<div class="form-wrap-input">
-						<input class="form-input" type="password" name="password" id="form-pass" placeholder="Senha">
-					</div>
-					<div class="form-container-btn">
-						<div class="form-wrap-btn">
-							<button class="form-btn" onclick="login()">Login</button>
-						</div>						
-					</div>
-					<div class="form-forgot-pwd">
-						<span class="form-forgot-text">
-							Esqueceu a senha? <a href="#">Clique aqui!</a>
-						</span>
-					</div>
-				</form>
+	<head>
+		<title>Dina mobile</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="./css/mobile.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+		<script src="./js/global.js"></script>
+	</head>
+	<body>
+		<div class="limiter">
+			<div class="container">
+				<div class="wrap">
+					<form id="form-login" action="http://passport.alexandre.dev.com/auth" method="POST" onsubmit="return false;">
+						<span class="dina-logo" alt="Dinamize"></span>
+						<div class="form-wrap-input">
+							<input class="form-input" type="text" name="email" id="form-user" placeholder="E-mail">
+						</div>
+						<div class="form-wrap-input">
+							<input class="form-input" type="password" name="password" id="form-pass" placeholder="Senha">
+						</div>
+						<div class="form-container-btn">
+							<div class="form-wrap-btn">
+								<button class="form-btn" onclick="login()">Login</button>
+							</div>						
+						</div>
+						<div class="form-forgot-pwd">
+							<span class="form-forgot-text">
+								Esqueceu a senha? <a href="#">Clique aqui!</a>
+							</span>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -54,24 +54,18 @@
 				client_code: "",
 			},
 		    type: 'POST',
-		    // contentType: 'application/json; charset=utf-8',
 		    success: function(data) { 
 		    	console.log(data); 
 		    	if (typeof(Storage) !== "undefined") {
-				  // Store
 				  sessionStorage.setItem("utoken", data.body["auth-token"]);
-				  $( location ).attr("href", "client.html");
-				  // Retrieve
+				  $( location ).attr("href", "clients.html");
 				} else {
-				  //document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
 				  console.log("Sem session! D:");
 				}
 		    },
 		    error: function(data) { 
-		    	console.log('Failed!');
 		    	console.log(data); 
 		    },
-		    //beforeSend: setHeader
 		});
 	}
 
