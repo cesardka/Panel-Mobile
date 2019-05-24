@@ -7,52 +7,35 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	</head>
 	<body>
-		<!-- Menu fixado no topo da página -->
-		<div class="navbar">
-			<!-- Menu hamburger -->
-			<a href="" id="menu">
-				<div class="menu-hamb"></div>
-				<div class="menu-hamb"></div>
-				<div class="menu-hamb"></div>
-			</a>
-			<!-- Ícone do usuário -->
-			<a href="" id="icon">
-				<div class="user-picture"></div>
-			</a>
-		</div>
 		<div class="limiter">
+			<!-- Menu fixado no topo da página -->
+			<div class="navbar">
+				<!-- Menu hamburger -->
+				<a href="" id="menu">
+					<div class="menu-hamb"></div>
+					<div class="menu-hamb"></div>
+					<div class="menu-hamb"></div>
+				</a>
+				<!-- Ícone do usuário -->
+				<a href="" id="icon">
+					<div class="user-picture"></div>
+				</a>
+			</div>
 			<div class="container">
-			<!-- Título fixado no topo da lista  -->
-			<div class="title">Selecione a empresa:</div>
-			<!-- Encapsulador de conteúdo  -->
-			<div class="content">
-				<!-- Lista de empresas que o usuário tem acesso  -->
-				<ul class="orga-list">
-					<li class="orga-item" data-id="1">
-						<div class="img-wrap">
-							<img src="./img/dina-logo.png" alt="logo Dinamize" />
-						</div>
-						<span class="">Dinamize</span>
-					</li>
-					<li class="orga-item" data-id="2">
-						<div class="img-wrap">
-							<img src="./img/vivo-logo.png" alt="logo VIVO" />
-						</div>
-						<span class="">VIVO</span>
-					</li>
-					<li class="orga-item" data-id="3">
-						<div class="img-wrap">
-							<img src="./img/pane-logo.jpg" alt="logo Panelinha" />
-						</div>
-						<span class="">Panelinha</span>
-					</li>
-					<li class="orga-item" data-id="4">
-						<div class="img-wrap">
-							<img src="./img/grin-logo.png" alt="logo Grin" />
-						</div>
-						<span class="">Grin</span>
-					</li>
-				</ul>
+				<!-- Título fixado no topo da lista  -->
+				<div class="title">Selecione a empresa:</div>
+				<!-- Encapsulador de conteúdo  -->
+				<div class="content">
+					<!-- Lista de empresas que o usuário tem acesso  -->
+					<ul class="orga-list">
+						<!-- <li class="orga-item" data-id="1">
+							<div class="img-wrap">
+								<img src="./img/300000.png" alt="logo Dinamize" />
+							</div>
+							<span class="">Dinamize</span>
+						</li> -->
+					</ul>
+				</div>
 			</div>
 		</div>
 	</body>
@@ -67,13 +50,13 @@
 		    },
 		    data: {},
 		    type: 'POST',		    
-		    success: function(data) { 
-				console.log(data); 
-				$("#user").html(data.body["name"]);
+		    success: function(response) {
+				console.log(response);
+				$("#user").html(response.body["name"]);
 		    },
-		    error: function(data) { 
+		    error: function(response) {
 		    	console.log('Failed!');
-		    	console.log(data); 
+		    	console.log(response);
 		    },
 		});
 		//BUSCA LISTA DE CLIENTES
@@ -85,19 +68,24 @@
 		    },
 		    data: {},
 		    type: 'POST',		    
-		    success: function(data2) { 
-				console.log(data2); 
-				var listaClientes = data2.body["items"];
+		    success: function(response) {
+				console.log(response);
+				var listaClientes = response.body["items"];
 				$(".orga-list").html("");
 				for(x in listaClientes){
 					var client_code = listaClientes[x]["client_code"];
 					var client_name = listaClientes[x]["trade_name"];
-					$(".orga-list").append("<li class='orga-item' data-id='"+client_code+"'><div class='img-wrap'><img src='./img/"+client_code+".png' alt='"+client_name+"'' /></div><span class=''>"+client_name+"</span></li>");
+					$(".orga-list").append("<li class='orga-item' data-id='"+client_code+"'>" +
+						"<div class='img-wrap'>" +
+							"<span class='helper'></span><img src='./img/"+client_code+".png' alt='"+client_name+"' />" +
+						"</div>" +
+						"<span class=''>"+client_name+"</span>" +
+					"</li>");
 			    }
 		    },
-		    error: function(data2) { 
-		    	console.log('Failed!');
-		    	console.log(data2); 
+		    error: function(response) {
+				console.log('Failed!');
+				console.log(response);
 		    },
 		});
 	});
