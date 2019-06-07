@@ -27,8 +27,8 @@
 				<!-- Encapsulador de conteúdo  -->
 				<div class="content">
 					<!-- Lista de empresas que o usuário tem acesso  -->
-					<ul class="orga-list">
-						<!-- <li class="orga-item" data-id="1">
+					<ul class="list">
+						<!-- <li class="list-item" data-id="1">
 							<div class="img-wrap">
 								<img src="./img/300000.png" alt="logo Dinamize" />
 							</div>
@@ -51,7 +51,7 @@
 		    data: {},
 		    type: 'POST',		    
 		    success: function(response) {
-				console.log(response);
+		    	redirectLogin(response.code);
 				$("#user").html(response.body["name"]);
 		    },
 		    error: function(response) {
@@ -69,13 +69,12 @@
 		    data: {},
 		    type: 'POST',		    
 		    success: function(response) {
-				console.log(response);
 				var listaClientes = response.body["items"];
-				$(".orga-list").html("");
+				$(".list").html("");
 				for(x in listaClientes){
 					var client_code = listaClientes[x]["client_code"];
 					var client_name = listaClientes[x]["trade_name"];
-					$(".orga-list").append("<li class='orga-item' data-id='"+client_code+"'>" +
+					$(".list").append("<li class='list-item' data-code='"+client_code+"' data-name='"+client_name+"'>" +
 						"<div class='img-wrap'>" +
 							"<span class='helper'></span><img src='./img/"+client_code+".png' alt='"+client_name+"' />" +
 						"</div>" +
@@ -87,6 +86,36 @@
 				console.log('Failed!');
 				console.log(response);
 		    },
+		});
+
+		// Listener de seleção para cada Cliente
+		$('.list').on('click', '.list-item', function() {
+			client_code = $(this).attr('data-code');
+			client_name = $(this).attr('data-name')
+			// Request para conseguir a outra parte do token ---------------
+			$.ajax({
+				url: 'http://passport.alexandre.dev.com/client/token',
+				headers: {
+			    	"Content-Type": "application/json; charset=utf-8",
+			    	"auth-token": sessionStorage.getItem("utoken"),
+			    },
+			    data: JSON.stringify({"client_code": client_code}),
+			    type: 'POST',
+			    success: function(response) {
+		    		redirectLogin(response.code);
+					if (response["body"] && response["body"]["auth-token"]) {
+						sessionStorage.setItem("utoken", response["body"]["auth-token"]);
+						sessionStorage.setItem("products", JSON.stringify(response["body"]["products"]));
+						sessionStorage.setItem("client_code", client_code);
+						sessionStorage.setItem("client_name", client_name);
+						$(location).attr('href', 'products.html');
+					}
+				},
+				error: function(response) {
+					console.log('Failed!');
+					console.log(response);
+				},
+			});
 		});
 	});
 </script>
