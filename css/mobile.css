@@ -5,6 +5,8 @@ box-sizing: border-box;
 }
 
 body, html {
+	font-family: arial;
+	font-size: 14px;
 	height: 100%;
 }
 
@@ -123,7 +125,7 @@ input {
 .navbar {
 	display: inline-block;
 	width: 100%;
-	height: 78px;
+	height: 64px;
 	background-color: #3B3B3B;
 }
 
@@ -131,7 +133,6 @@ input {
 	display: block;
 	color: #FFFFFF;
 	text-align: center;
-	padding: 14px 16px;
 	text-decoration: none;
 	transition: all 0.2s ease;
 }
@@ -143,9 +144,11 @@ input {
 
 .navbar > #menu {
 	float: left;
+	padding: 14px 16px;
 }
 
 .navbar > #icon {
+	padding: 7px;
 	float: right;
 }
 
@@ -155,6 +158,18 @@ input {
 	margin: 6px 0;
 	border-radius: 4px;
 	background-color: #FFFFFF;
+}
+
+.navbar-title {
+	float: left;
+	height: 100%;
+}
+
+.navbar-title img {
+	position: relative;
+	display: inline-block;
+	height: 100%;
+	padding: 10px;
 }
 
 .user-picture {
@@ -174,13 +189,13 @@ input {
 	top: 0;
 }
 
-.orga-list {
+ul.list {
 	list-style: none;
 	width: 100%;
 	margin: 15px auto;
 }
 
-.orga-item {
+li.list-item {
 	width: 100%;
 	height: 100px;
 	padding: 10px auto;
@@ -190,7 +205,7 @@ input {
 	background-color: #7a7a7a;
 }
 
-.orga-item > .img-wrap {
+li.list-item > .img-wrap {
 	width: 80px;
 	height: 80px;
 	margin: 10px 20px;
@@ -198,12 +213,12 @@ input {
 	white-space: nowrap;
 }
 
-.orga-item > .img-wrap > img {
+li.list-item > .img-wrap > img {
 	width: 100%;
 	vertical-align: middle;
 }
 
-.orga-item > span {
+li.list-item > span {
 	height: 100px;
 	top: 0;
 	padding: 10px 10px;
