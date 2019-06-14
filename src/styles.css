@@ -1,0 +1,11 @@
+* {
+margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+}
+
+body, html {
+	font-family: arial;
+	font-size: 14px;
+	height: 100%;
+}
