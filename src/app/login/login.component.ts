@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { PassportService } from '../passport.service';
@@ -11,10 +11,12 @@ import { PassportService } from '../passport.service';
 })
 export class LoginComponent implements OnInit {
 
-  entrar = 'Entrar';
+  	entrar = 'Entrar';
 
-	email = new FormControl('', [Validators.required, Validators.email]);
-	password = new FormControl('', Validators.required);
+	loginForm = new FormGroup({
+		email: new FormControl('', [Validators.required, Validators.email]),
+		password: new FormControl('', Validators.required)
+	});
 
 	/* Classes de validação do input */
 	emailInput = { "error" : false }
@@ -29,19 +31,18 @@ export class LoginComponent implements OnInit {
 	ngOnInit() {}
 
 	login(): void {
-  		//console.log('email: '+ this.email.value + ", status: " + this.email.status);
-  		//console.log('password: '+ this.password.value + ", status: " + this.password.status);
-
-  		this.emailInput = { "error" : this.email.status == "INVALID" }
-  		this.passwordInput = { "error" : this.password.status == "INVALID" }
-
-  		this.passportService.auth(this.email.value, this.password.value).subscribe(data => {
+		console.log(
+			"email =", this.loginForm.value['email'] + "\n" + 
+			"senha =", this.loginForm.value['password']
+		);
+  		this.passportService.auth(this.loginForm.value['email'], this.loginForm.value['password']).subscribe(data => {
   			console.log(data)
-  			if (data.code == "480001") {
-  				console.log(data.code);
-  				localStorage.setItem("token", data.body["auth-token"]);
-  				this.router.navigate(['/clientes']);
-  			}
+  			if (data.code != "480001") {
+				alert("Erro de autenticação!");
+				return false;
+			}
+			localStorage.setItem("token", data.body["auth-token"]);
+			this.router.navigate(['/clientes']);
   		});
   	}
 
