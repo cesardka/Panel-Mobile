@@ -1,0 +1,232 @@
+.limiter {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	background-color: #3B3B3B;
+}
+
+.container {
+	width: 100%;
+	padding: 15px;
+	background: #3C3C3B;
+	color: #FFFFFF;
+	display: inline-block;
+}
+
+.wrap {
+	padding: 33px 15px;
+}
+
+.wrap {
+	width: 390px;
+	background: transparent;
+	overflow: hidden;
+	/*-webkit-box-shadow: 0 5px 10px 0px rgba(0,0,0,0.1);*/
+}
+
+/* Conteúdo */
+.content {
+	width: 100%;
+}
+
+.dina-logo {
+	display: inline-block;
+	width: 100%;
+	height: 250px;
+	margin-bottom: 33px; 
+	background-image: url('../../assets/img/dinablock.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.form-wrap-input {
+	width: 100%;
+	border-bottom: 2px solid #0076A1;
+	margin-bottom: 37px;
+}
+
+.error {
+	border-bottom: 2px solid red;
+}
+
+input {
+	outline: none;
+	border: none;
+}
+
+.form-input {
+	font-size: 15px;
+	color: #DDDDDD;
+	line-height: 1.2;
+	display: block;
+	width: 100%;
+	height: 45px;
+	background: transparent;
+	padding: 0 5px;
+}
+
+.form-container-btn {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-top: 13px;
+}
+
+.form-wrap-btn {
+	width: 100%;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.form-btn {
+	color: #FFFFFF;
+	border-radius: 25px;
+	font-weight: bold;
+	font-size: 17px;
+	/*background: #3C3C3B;*/
+	background: #0076A1;
+	border: solid 2px #0076A1;
+	line-height: 1.2;
+	/*text-transform: uppercase;*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 20px;
+	width: 100%;
+	height: 50px;
+}
+
+/* Div esqueci a senha */
+.form-forgot-pwd {
+	padding-top: 100px;
+	text-align: center;
+}
+
+/* Texto esqueci a senha */
+.form-forgot-text {
+	font-size: 13px;
+	color: #DDDDDD;
+	line-height: 1.5;	
+}
+
+.form-forgot-text > a {
+	color: #F3F3F3;
+	font-weight: bold;
+}
+
+/* MENU DO TOPO --------------- */
+.navbar {
+	display: inline-block;
+	width: 100%;
+	height: 64px;
+	background-color: #3B3B3B;
+}
+
+.navbar > a {
+	display: block;
+	color: #FFFFFF;
+	text-align: center;
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+.navbar > a:hover {
+	color: #3B3B3B;
+	transform: scale(1.08);
+}
+
+.navbar > #menu {
+	float: left;
+	padding: 14px 16px;
+}
+
+.navbar > #icon {
+	padding: 7px;
+	float: right;
+}
+
+.menu-hamb {
+	width: 30px;
+	height: 4px;
+	margin: 6px 0;
+	border-radius: 4px;
+	background-color: #FFFFFF;
+}
+
+.navbar-title {
+	float: left;
+	height: 100%;
+}
+
+.navbar-title img {
+	position: relative;
+	display: inline-block;
+	height: 100%;
+	padding: 10px;
+}
+
+.user-picture {
+	border-radius: 50px;
+	width: 50px;
+	height: 50px;
+	/*background: url('../img/user-photo.png');*/
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+/* SELEÇÃO DE EMPRESA */
+.title {
+	text-align: left;
+	width: 100%;
+	height: 40px;
+	top: 0;
+}
+
+ul.list {
+	list-style: none;
+	width: 100%;
+	margin: 15px auto;
+}
+
+li.list-item {
+	width: 100%;
+	height: 100px;
+	padding: 10px auto;
+	margin-top: 20px;
+	display: block;
+	border-radius: 5px;
+	background-color: #7a7a7a;
+}
+
+li.list-item > .img-wrap {
+	width: 80px;
+	height: 80px;
+	margin: 10px 20px;
+	float: left;
+	white-space: nowrap;
+}
+
+li.list-item > .img-wrap > img {
+	width: 100%;
+	vertical-align: middle;
+}
+
+li.list-item > span {
+	height: 100px;
+	top: 0;
+	padding: 10px 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	vertical-align: middle;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
