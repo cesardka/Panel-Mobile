@@ -1,24 +1,24 @@
   <div class="container">
     <div class="wrap">
         <span class="dina-logo" alt="Dinamize"></span>
-        <form (ngSubmit)="login()">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
           <div class="form-wrap-input" [ngClass]="emailInput" >
-            <input class="form-input" type="text" [formControl]="email" placeholder="E-mail">
+            <input class="form-input" type="text" formControlName="email" placeholder="E-mail">
           </div>
           <div class="form-wrap-input" [ngClass]="passwordInput" >
-            <input class="form-input" type="password" [formControl]="password" placeholder="Senha">
+            <input class="form-input" type="password" formControlName="password" placeholder="Senha">
           </div>
           <div class="form-container-btn">
             <div class="form-wrap-btn">
-              <button type="submit" class="form-btn" (click)="login()">{{entrar}}</button>
-            </div>            
+              <button type="submit" class="form-btn">{{entrar}}</button>
+            </div>
+          </div>
+          <div class="form-forgot-pwd">
+            <span class="form-forgot-text">
+              Esqueceu a senha? <a href="#">Clique aqui!</a>
+            </span>
           </div>
         </form>
-        <div class="form-forgot-pwd">
-          <span class="form-forgot-text">
-            Esqueceu a senha? <a href="#">Clique aqui!</a>
-          </span>
-        </div>
     </div>
   </div>
 
