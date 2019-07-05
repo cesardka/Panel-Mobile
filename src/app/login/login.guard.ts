@@ -11,7 +11,7 @@ export class LoginGuard implements CanActivate {
 	canActivate(
 		next: ActivatedRouteSnapshot,
 		state: RouterStateSnapshot): boolean {
-		console.log('VERIFICANDO ROTAS!'+state.url);
+		console.log('canActivate: '+state.url);
 		let url: string = state.url;
 		return this.verifyLogin(url);
 	}
