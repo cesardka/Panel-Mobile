@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./page-not-found.component.css']
 })
 export class PageNotFoundComponent implements OnInit {
+  erroUrl = "http://pluspng.com/img-png/attention-sign-png--2400.png";
+  homeUrl = "/";
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }

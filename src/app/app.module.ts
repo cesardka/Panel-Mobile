@@ -12,6 +12,8 @@ import { ItemClienteComponent } from './item-cliente/item-cliente.component';
 import { MenuComponent } from './menu/menu.component';
 
 import { AppMaterialModule } from './app-material/app-material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +22,16 @@ import { AppMaterialModule } from './app-material/app-material.module';
     PageNotFoundComponent,
     LoginComponent,
     ItemClienteComponent,
-    MenuComponent
+    MenuComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppMaterialModule
+    AppMaterialModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
