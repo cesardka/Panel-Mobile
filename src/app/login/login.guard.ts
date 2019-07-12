@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { PassportService } from '../passport.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class LoginGuard implements CanActivate {
 	}
 
 	verifyLogin(url: string): boolean {
+		console.log(localStorage.getItem("token"));
 		if(localStorage.getItem("token")){
 			if (url == '/login'){
 				this.router.navigate(['/clientes']);
