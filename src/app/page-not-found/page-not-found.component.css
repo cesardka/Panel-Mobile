@@ -1,0 +1,26 @@
+.error404 {
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    display: block;
+}
+
+.error404 .title {
+    display: block;
+}
+
+.error404 .title img {
+    display: block;
+    margin: 40px;
+    width: auto;
+    height: 300px;
+    background: url('http://pluspng.com/img-png/attention-sign-png--2400.png') cover;
+}
+
+.error404 .title p {
+    
+}
+
+.error404 .subtitle {
+
+}
