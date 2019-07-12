@@ -9,6 +9,9 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './login/login.component';
 import { ItemClienteComponent } from './item-cliente/item-cliente.component';
+import { MenuComponent } from './menu/menu.component';
+
+import { AppMaterialModule } from './app-material/app-material.module';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,15 @@ import { ItemClienteComponent } from './item-cliente/item-cliente.component';
     ClientesComponent,
     PageNotFoundComponent,
     LoginComponent,
-    ItemClienteComponent
+    ItemClienteComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
