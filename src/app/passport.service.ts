@@ -32,4 +32,7 @@ export class PassportService {
       	//);
 	}
 
+	Get(id: number) {
+		return id;
+	}
 }

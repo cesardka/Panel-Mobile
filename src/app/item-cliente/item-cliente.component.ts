@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'item-cliente',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemClienteComponent implements OnInit {
 
-  constructor() { }
+  @Input() public title:    string;
+  @Input() public imageUrl: string;
+  @Input() public index:    number;
 
-  ngOnInit() {
-  }
+  constructor() {}
+
+  ngOnInit() {}
 
 }
